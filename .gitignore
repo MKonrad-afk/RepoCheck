@@ -1,0 +1,9 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+.idea/
+repocheck-report*.json
+dist/
+build/
+*.spec
