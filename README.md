@@ -14,6 +14,7 @@ python main.py
 The requirements above are for running the Python GUI from source. Git, Gitleaks, OCR and the repository test dependencies are installed automatically into a separate app-owned runtime on the first **Check files**. No Homebrew, sudo or manual tool installation is needed for the default workflow.
 
 First setup needs internet access, several minutes and approximately 2 GB of free disk space (the Linux integration test used about 1.4 GB including package caches). Subsequent checks reuse and verify that runtime. Network access is still needed to refresh the repository and its history.
+![Overwiev of the GUI](images/img.png)
 
 ## Normal workflow
 
@@ -47,7 +48,6 @@ python scripts/validate_syntax.py
 python -m unittest discover -s tests -v
 gitleaks git --redact --no-banner --log-opts=--all --config .gitleaks.toml .
 ```
-
 The Gitleaks command uses the repository config when present and scans fetched history plus the temporary new commit. The new-changes sanitizer checks the temporary commit's diff. An unchanged file produces an empty range; the current tree and history are still checked.
 
 These are the four groups in the lab's `checks.yml`: secret scan, leak check, image check, and syntax/unit tests. The adapter checks for the expected jobs and command signatures and refuses to issue a ready verdict when it does not recognize that recipe. It is a local adapter, not a GitHub Actions interpreter.
